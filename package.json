@@ -1,0 +1,39 @@
+{
+  "name": "portfolio-front",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "NODE_ENV=production next build",
+    "start": "next start",
+    "lint": "next lint",
+    "stop": "kill $(lsof -t -i:3000)"
+  },
+  "dependencies": {
+    "@next/font": "13.1.2",
+    "@tanstack/react-query": "^4.22.0",
+    "@types/node": "18.11.18",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.10",
+    "@vercel/analytics": "^0.1.11",
+    "eslint": "8.32.0",
+    "eslint-config-next": "13.1.2",
+    "lru-cache": "^7.18.0",
+    "next": "13.1.2",
+    "nodemailer": "^6.9.0",
+    "react": "18.2.0",
+    "react-cool-dimensions": "^3.0.0",
+    "react-dom": "18.2.0",
+    "react-easy-swipe": "^0.0.23",
+    "react-icons": "^4.7.1",
+    "react-loading": "^2.0.3",
+    "react-toastify": "^9.1.1",
+    "typescript": "4.9.4",
+    "yet-another-react-lightbox": "^2.4.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4"
+  }
+}
