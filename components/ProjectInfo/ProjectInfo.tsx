@@ -47,7 +47,7 @@ const ProjectInfo = ({
 
   return (
     <>
-      <div className='relative w-full h-auto py-4 px-8 flex'>
+      <div className='relative w-full h-auto py-4 px-8'>
         <div className='relative min-h-128 flex flex-col md:flex-row max-w-fit p-4 m-auto z-10 rounded-xl bg-zinc-800 bg-opacity-95'>
           {images && images.length > 0 ?
             <div className='relative w-full h-96 md:h-auto md:w-2/4 mb-4'>

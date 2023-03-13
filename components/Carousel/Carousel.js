@@ -84,7 +84,7 @@ const Carousel = ({ imagesData }) => {
                             onClick={handlePrev}
                         >
                             <svg
-                                className="w-6 h-6"
+                                className="w-5 h-5"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
@@ -103,9 +103,9 @@ const Carousel = ({ imagesData }) => {
                                 <button
                                     key={index}
                                     className={`${index === currentImage
-                                        ? "border-2 border-amber-700"
-                                        : "border-2 border-gray-600"
-                                        } w-12 h-12 mx-1 focus:outline-none`}
+                                        ? "border border-amber-700 md:border-2"
+                                        : "border border-gray-600 md:border-2"
+                                        } w-10 h-10 mx-1 focus:outline-none md:w-16 md:h-16`}
                                     onClick={() => handleImageClick(index)}
                                 >
                                     <Image
@@ -125,7 +125,7 @@ const Carousel = ({ imagesData }) => {
                             onClick={handleNext}
                         >
                             <svg
-                                className="w-6 h-6"
+                                className="w-5 h-5"
                                 fill="none"
                                 stroke="currentColor"
                                 viewBox="0 0 24 24"
