@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import type { NextPage } from 'next'
 import Link from 'next/link';
 import Header from '../components/Header/Header';
@@ -22,13 +22,36 @@ interface Project {
 
 const Home: NextPage = () => {
   const [query, setQuery] = useState("");
-  const { data, isLoading, isFetching, error } = useFetchProjects(query);
+  const { data, fetchNextPage, isLoading, isFetching, error } = useFetchProjects(query);
   const [loading, setLoading] = useState(false);
   const [width, setWidth] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (scrollRef.current) {
+        const containerHeight = scrollRef.current.clientHeight;
+        const scrollHeight = scrollRef.current.scrollHeight;
+        const scrollTop = scrollRef.current.scrollTop;  
+
+        // si l'utilisateur est à 90% de la fin de la page, on charge les projets suivants
+        if ((scrollTop + containerHeight) / scrollHeight >= 0.9) {
+          fetchNextPage();
+        }
+        //s'il n'y a plus de projets à charger, on supprime l'event listener
+        if (!isFetching && !isLoading) {
+          window.removeEventListener('scroll', handleScroll);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isFetching, isLoading]);
 
   const handleClick = () => {
     setLoading(true);
@@ -67,7 +90,7 @@ const Home: NextPage = () => {
         <meta property='og:type' content='website' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='main-element relative h-screen overflow-y-scroll'>
+      <main className='main-element relative h-screen overflow-y-scroll' ref={scrollRef}>
         <Header />
         <Leading
           imgUrl={width > 1280 ? WOMAN1920 : width > 640 && width <= 1280 ? WOMAN1280 : WOMAN640}
