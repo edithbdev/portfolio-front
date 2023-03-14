@@ -80,7 +80,7 @@ const Home: NextPage = () => {
         <meta property='og:type' content='website' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='main-element relative h-screen overflow-y-auto overscroll-contain' onScroll={scrollHandler}>
+      <main className='main-element relative h-screen overflow-y-auto overscroll-y-auto' onScroll={scrollHandler}>
         <Header />
         <Leading
           imgUrl={width > 1280 ? WOMAN1920 : width > 640 && width <= 1280 ? WOMAN1280 : WOMAN640}
