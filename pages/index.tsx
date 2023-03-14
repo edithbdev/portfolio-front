@@ -38,17 +38,17 @@ const Home: NextPage = () => {
         const scrollHeight = scrollRef.current.scrollHeight;
         const scrollTop = scrollRef.current.scrollTop;  
 
-        // si l'utilisateur est à 90% de la fin de la page, on charge les projets suivants
-        if ((scrollTop + containerHeight) / scrollHeight >= 0.9) {
+        // si l'utilisateur est à 100% de la fin de la page, on charge les projets suivants
+        if ((scrollTop + containerHeight) / scrollHeight >= 1) {
           fetchNextPage();
         }
-        //s'il n'y a plus de projets à charger, on supprime l'event listener
+        //s'il n'y a plus de projets à charger, on supprime l'event listener et on affiche la page entière
         if (!isFetching && !isLoading) {
           window.removeEventListener('scroll', handleScroll);
         }
       }
     };
-
+         
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isFetching, isLoading]);
