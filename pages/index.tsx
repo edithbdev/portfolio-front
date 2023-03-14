@@ -22,28 +22,13 @@ interface Project {
 
 const Home: NextPage = () => {
   const [query, setQuery] = useState("");
-  const { data, fetchNextPage, isLoading, isFetching, error } = useFetchProjects(query);
+  const { data, isLoading, isFetching, error } = useFetchProjects(query);
   const [loading, setLoading] = useState(false);
   const [width, setWidth] = useState(0);
 
   useEffect(() => {
     setWidth(window.innerWidth);
   }, []);
-
-
-  // La fonction scrollHandler est appelée à chaque fois que l'utilisateur scroll
-  // https://www.kindacode.com/article/react-typescript-handling-onscroll-event/
-  const scrollHandler = (event: React.UIEvent<HTMLDivElement>) => {
-    const containerHeight = event.currentTarget.clientHeight;
-    const scrollHeight = event.currentTarget.scrollHeight;
-    const scrollTop = event.currentTarget.scrollTop;
-
-    if ((scrollTop + containerHeight) / scrollHeight >= 0.9) {
-      fetchNextPage();
-    }
-  };
-
-  if (error) return <Error />;
 
   const handleClick = () => {
     setLoading(true);
@@ -69,6 +54,8 @@ const Home: NextPage = () => {
     return displayItems;
   };
 
+  if (error) return <Error />;
+
   return (
     <>
       <Head>
@@ -80,7 +67,7 @@ const Home: NextPage = () => {
         <meta property='og:type' content='website' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='main-element relative h-screen overflow-y-auto overscroll-y-auto' onScroll={scrollHandler}>
+      <main className='main-element relative h-screen overflow-y-scroll'>
         <Header />
         <Leading
           imgUrl={width > 1280 ? WOMAN1920 : width > 640 && width <= 1280 ? WOMAN1280 : WOMAN640}
@@ -114,7 +101,7 @@ const Home: NextPage = () => {
                 ))
               ))}
           {data && data.pages && data.pages.length == 0 && (
-            <div className='text-center text-2xl font-bold'>No results found</div>
+            <div className='text-center text-2xl font-bold'>Aucun résultat</div>
           )}
         </Grid>
         {isLoading || isFetching ? <Spinner /> : null}
