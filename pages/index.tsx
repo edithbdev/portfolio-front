@@ -51,7 +51,7 @@ const Home: NextPage = () => {
 
   const itemsDisplay = (project: Project) => {
     const displayItems: { name: string }[] = [];
-   
+
     project.frontendLanguages.forEach((item) => {
       displayItems.push(item);
     }
@@ -71,17 +71,15 @@ const Home: NextPage = () => {
 
   return (
     <>
-      <div>
-        <Head>
-          <title>Edith - Développeuse web</title>
-          <meta name='description' content='Edith - Développeuse web Symfony - portfolio' />
-          <meta property='og:title' content='Edith - Développeuse web' key='title' />
-          <meta property='og:description' content='Edith - Développeuse web - portfolio' />
-          <meta property='og:url' content='https://edithbredon.fr' />
-          <meta property='og:type' content='website' />
-          <link rel='icon' href='/favicon.ico' />
-        </Head>
-      </div>
+      <Head>
+        <title>Edith - Développeuse web</title>
+        <meta name='description' content='Edith - Développeuse web Symfony - portfolio' />
+        <meta property='og:title' content='Edith - Développeuse web' key='title' />
+        <meta property='og:description' content='Edith - Développeuse web - portfolio' />
+        <meta property='og:url' content='https://edithbredon.fr' />
+        <meta property='og:type' content='website' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <main className='main-element relative h-screen overflow-y-scroll' onScroll={scrollHandler}>
         <Header />
         <Leading
