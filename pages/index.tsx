@@ -80,7 +80,7 @@ const Home: NextPage = () => {
         <meta property='og:type' content='website' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <main className='main-element relative h-screen overflow-y-scroll' onScroll={scrollHandler}>
+      <main className='main-element relative h-screen overflow-y-auto overscroll-contain' onScroll={scrollHandler}>
         <Header />
         <Leading
           imgUrl={width > 1280 ? WOMAN1920 : width > 640 && width <= 1280 ? WOMAN1280 : WOMAN640}
@@ -91,7 +91,7 @@ const Home: NextPage = () => {
         />
         {loading && <Spinner />}
         <Grid
-          className='px-6 mt-4 w-full md:w-6/6 mb-4 md:mt-10'
+          className='px-6 mt-4 w-full md:w-6/6 mb-8 md:mt-10'
           setQuery={setQuery}
           title={
             query && !isLoading && !isFetching && data && data.pages && data.pages[0].results.length === 0 ? `Aucun résultat pour "${query}"`
