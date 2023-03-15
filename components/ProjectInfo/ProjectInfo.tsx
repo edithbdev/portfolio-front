@@ -58,12 +58,13 @@ const ProjectInfo = ({
               <Thumbnail imgUrl={thumbUrl ? thumbUrl : '/no_image.jpg'} height='h-full' />
             </div>
           }
-          
+
           <div className='text-gray-100 px-0 py-4 md:py-0 text-center md:text-left md:px-8 w-full md:w-2/3'>
             <div className='flex flex-col md:flex-row justify-between items-center md:items-start mt-6'>
               <h1 className='text-2xl mt-6 md:text-3xl md:mt-0 font-bold pb-4'>
                 {title}
               </h1>
+              {projectLink && projectLink !== '' || githubLink && githubLink !== '' ?
               <div className='flex flex-wrap items-center justify-center md:justify-start'>
                 {projectLink && projectLink !== '' ? (
                   <Link href={projectLink} passHref target='_blank' rel='noopener noreferrer' className='mr-4 md:mr-8'>
@@ -77,29 +78,37 @@ const ProjectInfo = ({
                   </Link>
                 ) : ''}
               </div>
+              : ''}
             </div>
             <div className='mb-6 text-sm md:text-md mt-6' dangerouslySetInnerHTML={{ __html: summary }} />
             <p className='mb-6 text-sm md:text-lg mt-6'>Année de création : {year}</p>
             {lastUpdate && lastUpdate !== '' ? <p className='mb-6 text-sm md:text-lg mt-6'>Dernière mise à jour : {lastUpdate}</p> : ''}
             <div className='flex flex-col md:flex-row justify-between items-center md:items-start w-full'>
+              {frontendLanguages && frontendLanguages.length > 0 ?
               <div className='mt-6 w-full md:w-1/3'>
                 <h3 className='text-lg font-bold px-2 py-1'>Client</h3>
-                {frontendLanguages ? frontendLanguages?.map((frontendLanguages: FrontendLanguages) => (
+                {frontendLanguages.map((frontendLanguages: FrontendLanguages) => (
                   <Pill key={frontendLanguages.id} text={frontendLanguages.name} />
-                )) : ''}
+                ))}
               </div>
-              <div className='mt-6 w-full md:w-1/3'>
-                <h3 className='text-lg font-bold px-2 py-1'>Serveur</h3>
-                {backendLanguages ? backendLanguages?.map((backendLanguages: BackendLanguages) => (
-                  <Pill key={backendLanguages.id} text={backendLanguages.name} />
-                )) : ''}
-              </div>
+              : ''}
+              {backendLanguages && backendLanguages.length > 0 ?
+                  <div className='mt-6 w-full md:w-1/3'>
+                    <h3 className='text-lg font-bold px-2 py-1'>Serveur</h3>
+                    {backendLanguages.map((backendLanguages: BackendLanguages) => (
+                      <Pill key={backendLanguages.id} text={backendLanguages.name} />
+                    ))}
+                  </div>
+                : ''}
+
+              {tools && tools.length > 0 ?
               <div className='mt-6 w-full md:w-1/3'>
                 <h3 className='text-lg font-bold px-2 py-1'>Outils</h3>
-                {tools ? tools?.map((tool: Tools) => (
+                {tools.map((tool: Tools) => (
                   <Pill key={tool.id} text={tool.name + (tool.description ? ` : ${tool.description}` : '')} />
-                )) : ''}
+                ))}
               </div>
+              : ''}
             </div>
           </div>
           <Modal isVisible={isModalOpen} closeModal={() => setIsModalOpen(false)}>
@@ -122,7 +131,7 @@ const ProjectInfo = ({
           style={{ objectFit: 'cover', objectPosition: 'center', filter: 'blur(5px)' }}
           src={backgroundImgUrl ? backgroundImgUrl : '/no_image.jpg'}
           loading="lazy"
-          alt='background' 
+          alt='background'
         />
       </div>
     </>

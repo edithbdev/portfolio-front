@@ -34,7 +34,7 @@ const Project: NextPage<Props> = ({ project, similarProjects, title }: Props) =>
     return (
         <>
             <Head>
-                <title>Edith - Développeuse web - {title}</title>
+                <title>Edith - Développeuse web</title>
                 <meta name='description' content={`Page de présentation du ${title}`} />
                 <meta property='og:title' content={`Edith - Développeuse web - ${title}`} />
                 <meta property='og:description' content={`Page de présentation du ${title}`} />
