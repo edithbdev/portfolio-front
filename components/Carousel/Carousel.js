@@ -154,35 +154,38 @@ const Carousel = ({ imagesData }) => {
                 onNext={handleNext}
             />
             <Modal isVisible={isModalOpen} closeModal={() => setIsModalOpen(false)}>
-                <div className="flex flex-col align-center justify-center my-4">
-                    <Image
-                        src={API_URL + imagesData[currentImage].path}
-                        alt={imagesData[currentImage].name}
-                        fill={false}
-                        style={{ objectFit: "cover", objectPosition: "top center", width: "auto", height: "auto" }}
-                        width={1000}
-                        height={700}
-                        loading="lazy"
-                    />
-                    <span className="bottom-0 left-0 px-2 py-1 text-xs font-semibold text-white bg-gray-900 rounded-bl-lg w-12">
-                        {currentImage + 1} / {imagesData.length}
-                    </span>
-                </div>
+
                 <div className="flex items-center justify-center w-full mt-4">
                     {currentImage === 0 ? null : (
                         <button
                             onClick={handlePrev}
-                            className="text-gray-900 font-bold text-sm focus:outline-none"
+                            className="text-gray-100 font-bold text-sm focus:outline-none mr-2 bg-amber-700 rounded-full w-8 h-8 flex items-center justify-center"
+                            title="Image précédente"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7"></path>
                             </svg>
                         </button>
                     )}
+                    <div className="flex flex-col align-center justify-center my-4">
+                        <Image
+                            src={API_URL + imagesData[currentImage].path}
+                            alt={imagesData[currentImage].name}
+                            fill={false}
+                            style={{ objectFit: "cover", objectPosition: "top center", width: "auto", height: "auto" }}
+                            width={1000}
+                            height={700}
+                            loading="lazy"
+                        />
+                        <span className="bottom-0 left-0 px-2 py-1 text-xs font-semibold text-white bg-gray-900 rounded-bl-lg w-12">
+                            {currentImage + 1} / {imagesData.length}
+                        </span>
+                    </div>
                     {currentImage === imagesData.length - 1 ? null : (
                         <button
                             onClick={handleNext}
-                            className="text-gray-900 font-bold text-sm focus:outline-none"
+                            className="text-gray-100 font-bold text-sm focus:outline-none ml-2 bg-amber-700 rounded-full w-8 h-8 flex items-center justify-center"
+                            title="Image suivante"
                         >
                             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"></path>
