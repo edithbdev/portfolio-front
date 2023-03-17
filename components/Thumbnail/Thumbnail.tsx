@@ -3,12 +3,13 @@ import Image, { StaticImageData } from 'next/image';
 type Props = {
   imgUrl: string | StaticImageData;
   height?: string;
+  border?: string;
 };
 
-const Thumbnail = ({ imgUrl, height }: Props) => {
+const Thumbnail = ({ imgUrl, height, border }: Props) => {
   return (
     <>
-      <div className={`relative w-full cursor-pointer ${height ? height : 'h-72'}`}>
+      <div className={`relative w-full cursor-pointer ${height ? height : 'h-72'} ${border ? border : ''}`}>
         <Image
           placeholder='blur'
           blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNsqgcAAYkBA6rFAegAAAAASUVORK5CYII='

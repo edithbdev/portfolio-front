@@ -77,7 +77,7 @@ const Carousel = ({ imagesData }) => {
                             {currentImage + 1} / {imagesData.length}
                         </span>
                     </div>
-                    <span className="text-xs md:text-sm text-gray-300">Cliquer sur l&apos;image pour la voir</span>
+                    <span className="text-xs md:text-sm text-gray-300">Cliquer sur l&apos;image pour l&apos;agrandir</span>
                     <div className="flex items-center justify-between w-full mt-4">
                         <button
                             className="flex items-center justify-center w-10 h-10 text-gray-100 bg-amber-700 rounded-full focus:outline-none hover:bg-amber-600"
