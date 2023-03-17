@@ -55,7 +55,8 @@ const ProjectInfo = ({
             </div>
             :
             <div className='relative w-full h-96 md:h-auto md:w-2/4' onClick={openModal} title="cliquer pour agrandir">
-              <Thumbnail imgUrl={thumbUrl ? thumbUrl : '/no_image.jpg'} height='h-full' />
+              <Thumbnail imgUrl={thumbUrl ? thumbUrl : '/no_image.jpg'} height='h-full'/>
+              <span className="text-xs md:text-sm text-gray-300 text-center">Cliquer sur l&apos;image pour l&apos;agrandir</span>
             </div>
           }
 
