@@ -18,23 +18,15 @@ const Card = ({ imgUrl, title, subtitle, displayOneList }: Props) => (
       <div className='absolute w-full bottom-0 px-4 py-2 rounded-b-xl bg-zinc-800'>
         <h1 className='text-amber-200 font-semibold text-center text-sm capitalize md:uppercase'>{title}</h1>
         {subtitle ? <p className='text-amber-400 text-center text-xs truncate' dangerouslySetInnerHTML={{ __html: subtitle }} /> : null}
-        {displayOneList ? (
+        {displayOneList && (
           <ul className='flex justify-center flex-wrap'>
             {displayOneList.map((item, index) => (
-              index < 11 ? (
-                <li key={item.name} className='text-amber-400 text-center text-xs p-1'>
-                  {item.name}
-                </li>
-              ) : (
-                index === 12 && (
-                  <li key={item.name} className='text-amber-400 text-center text-xs p-1'>
-                    ...
-                  </li>
-                )
-              )
+              <li key={index} className='text-amber-400 text-center text-xs p-1'>
+                {index < 11 ? item.name : index === 12 && '...'}
+              </li>
             ))}
           </ul>
-        ) : null}
+        )}
         <div className='flex justify-center'>
           <button className='flex justify-center w-4/5 md:w-3/5 bg-amber-700 text-sm text-gray-100 font-semibold rounded-lg px-2 py-2 mt-2 hover:bg-amber-800 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-opacity-15'>
             En savoir plus
