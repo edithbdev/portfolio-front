@@ -5,7 +5,6 @@ import Breadcrumb from '../components/Breadcrumb/Breadcrumb';
 import ProjectInfo from '../components/ProjectInfo/ProjectInfo';
 import Grid from '../components/Grid/Grid';
 import Card from '../components/Card/Card';
-import Spinner from '../components/Spinner/Spinner';
 import Head from 'next/head'
 import { IMAGE_BASE_URL, projectUrl, similarProjectsUrl } from '../config';
 import { basicFetch } from '../utils/fetchFunctions';
@@ -59,7 +58,6 @@ const Project: NextPage<Props> = ({ project, similarProjects, title }: Props) =>
                     backendLanguages={project.backendLanguages ? project.backendLanguages : []}
                     tools={project.tools ? project.tools : []}
                 />
-                {loading && <Spinner />}
                 {similarProjects && similarProjects.length > 0 &&
                     <Grid className='px-6 mt-4 w-full md:w-6/6 mb-4 md:mt-10' title='Projets qui pourraient vous intéresser'>
                         {similarProjects.map(project => (

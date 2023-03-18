@@ -36,7 +36,7 @@ const Home: NextPage = () => {
       if (scrollRef.current) {
         const containerHeight = scrollRef.current.clientHeight;
         const scrollHeight = scrollRef.current.scrollHeight;
-        const scrollTop = scrollRef.current.scrollTop;  
+        const scrollTop = scrollRef.current.scrollTop;
 
         // si l'utilisateur est à 80% de la fin de la page, on charge les projets suivants
         if ((scrollTop + containerHeight) / scrollHeight >= 0.8) {
@@ -48,14 +48,20 @@ const Home: NextPage = () => {
         }
       }
     };
-         
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [isFetching, isLoading]);
+  }, [isFetching, isLoading, fetchNextPage]);
 
   const handleClick = () => {
     setLoading(true);
-  }
+  };
+
+  useEffect(() => {
+    setLoading(false);
+  }, [loading]
+  );
+
 
   const itemsDisplay = (project: Project) => {
     const displayItems: { name: string }[] = [];
@@ -99,7 +105,6 @@ const Home: NextPage = () => {
           quote="« La connaissance théorique est un trésor dont la pratique est la clé.»"
           quoteAuthor='Heber J. Grant'
         />
-        {loading && <Spinner />}
         <Grid
           className='px-6 mt-4 w-full md:w-6/6 mb-8 md:mt-10'
           setQuery={setQuery}
