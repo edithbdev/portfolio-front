@@ -1,6 +1,6 @@
 const Spinner = () => (
   <div className='flex items-center justify-center mt-2 w-full'>
-    <button type="button" className="w-4/5 flex justify-center items-center text-gray-400 font-bold py-2 px-4">
+    <button type="button" className="w-4/5 flex justify-center items-center text-gray-400 font-bold py-2 px-4" data-testid="Spinner">
       <svg className="animate-spin h-6 w-6 mr-3" viewBox="0 0 1 44" fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           fillRule='evenodd'

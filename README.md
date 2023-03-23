@@ -9,6 +9,7 @@ Ce portfolio a été créé avec Next.js et déployé sur Vercel. Il utilise une
 - [NextJS](https://nextjs.org/)
 - [React](https://reactjs.org/)
 - [TypeScript](https://www.typescriptlang.org/)
+- [Jest and React Testing Library](https://nextjs.org/docs/testing#jest-and-react-testing-library)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Vercel](https://www.vercel.com/) (pour le déploiement)
 
@@ -19,6 +20,7 @@ Ce portfolio a été créé avec Next.js et déployé sur Vercel. Il utilise une
 - Affichage des détails du projet
 - Affichage des projets similaires
 - Formulaire de contact
+- Tests avec Jest
 
 ## Installation
 
@@ -29,6 +31,16 @@ Ce portfolio a été créé avec Next.js et déployé sur Vercel. Il utilise une
 
 1. Démarrez l'application: `npm run dev`
 2. Ouvrez votre navigateur et allez sur `http://localhost:3000`
+
+## Tests
+```bash
+npm run test
+```
+
+## Couverture de code
+```bash
+npm run coverage
+```
 
 ## Déploiement
 

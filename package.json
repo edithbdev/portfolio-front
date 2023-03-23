@@ -7,7 +7,9 @@
     "build": "NODE_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
-    "stop": "kill $(lsof -t -i:3000)"
+    "stop": "kill $(lsof -t -i:3000)",
+    "test": "jest",
+    "coverage": "jest --coverage"
   },
   "dependencies": {
     "@next/font": "13.1.2",
@@ -32,7 +34,14 @@
     "yet-another-react-lightbox": "^2.4.3"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^14.0.0",
     "autoprefixer": "^10.4.13",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
+    "jest-fetch-mock": "^3.0.3",
+    "jest-puppeteer": "^8.0.5",
+    "node-mocks-http": "^1.12.2",
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4"
   }

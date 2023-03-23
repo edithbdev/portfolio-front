@@ -11,9 +11,9 @@ export type Project = {
     imageFile: string;
     projectLink?: string;
     githubLink?: string;
-    frontendLanguages: FrontendLanguages[];
-    backendLanguages: BackendLanguages[];
-    tools: Tools[];
+    frontendLanguages?: FrontendLanguages[];
+    backendLanguages?: BackendLanguages[];
+    tools?: Tools[];
     images?: Images[];
 };
 

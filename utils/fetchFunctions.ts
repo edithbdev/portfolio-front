@@ -9,8 +9,7 @@ export const basicFetch = async <returnType>(endpoint: string): Promise<returnTy
     }
 
     const data = await response.json();
-
-    if (!data) throw new Error('No data');
+    if (!data) throw new Error('Aucune donnée reçue.');
     return data;
 }
 

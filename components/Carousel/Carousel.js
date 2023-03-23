@@ -65,7 +65,7 @@ const Carousel = ({ imagesData }) => {
                 <div className="flex flex-col items-center justify-center w-full mb-6">
                     <div className="relative w-full h-96 md:h-96 lg:h-128 cursor-pointer" onClick={openModal} title="cliquer pour agrandir">
                         <Image
-                            src={API_URL + imagesData[currentImage].path ?? ""}
+                            src={API_URL + imagesData[currentImage]?.path ?? ""}
                             alt={imagesData[currentImage].name}
                             fill
                             sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw'

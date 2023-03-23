@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { sendContactform } from "../../utils/sendContactform";
 import { ContactForm } from "@/utils/types";
-import Loader from "@/components/Loader/Loader";
+import Loader from "../Loader/Loader";
 //https://www.npmjs.com/package/react-toastify
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -36,13 +36,14 @@ const Form = () => {
 
     // fonction pour gérer les erreurs de saisie
     const onBlur = (e: React.FormEvent<HTMLFormElement> | React.FormEvent<HTMLInputElement> | React.FormEvent<HTMLTextAreaElement>) => {
-        console.log('target', e.currentTarget.name);
+        // console.log('target', e.currentTarget.name);
         if (!e.currentTarget === null) return;
         if (!e.currentTarget.name) return;
         if (e.currentTarget.value === '') {
             e.currentTarget.classList.add('border-red-500');
         } else {
             e.currentTarget.classList.remove('border-red-500');
+            e.currentTarget.classList.add('border-green-500');
         }
         // on met à jour le state touched pour indiquer que l'input a été touché
         setTouched({ ...touched, [e.currentTarget.name]: true });
@@ -101,9 +102,6 @@ const Form = () => {
                 progress: undefined,
             });
         }
-        // toast(
-        //     <p className="text-green-500 text-sm">Votre message a bien été envoyé</p>
-        // );
     }
 
     const handleCheckbox = (e: React.FormEvent<HTMLInputElement>) => {
@@ -140,7 +138,7 @@ const Form = () => {
 
     return (
         <>
-            <div className="flex flex-col items-center justify-center py-3 px-6 lg:px-8 w-full mx-auto">
+            <div className="flex flex-col items-center justify-center py-3 px-6 lg:px-8 w-full mx-auto" data-testid="Form">
                 {
                     error && <p className="text-red-500 text-sm">{error}</p>
                 }
@@ -160,7 +158,7 @@ const Form = () => {
                         <label
                             htmlFor="name"
                             className="block text-xs md:text-sm font-medium text-gray-700"
-                        >Nom</label>
+                        >Nom *</label>
                         <input
                             type="text"
                             id="name"
@@ -178,7 +176,7 @@ const Form = () => {
                         <label
                             htmlFor="email"
                             className="block text-xs md:text-sm font-medium text-gray-700"
-                        >Email</label>
+                        >Email *</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
@@ -188,7 +186,7 @@ const Form = () => {
                                 id="email"
                                 name="email"
                                 required
-                                className="mb-2 bg-gray-50 border text-gray-700 text-xs md:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                className="mb-2 bg-gray-50 border text-gray-700 text-xs md:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="votre@email.com"
                                 value={values.email} onChange={handleChange}
                                 onBlur={onBlur}
@@ -202,13 +200,13 @@ const Form = () => {
                         <label
                             htmlFor="subject"
                             className="mt-2 block text-xs md:text-sm font-medium text-gray-700"
-                        >Sujet</label>
+                        >Sujet *</label>
                         <input
                             type="text"
                             id="subject"
                             name="subject"
                             required
-                            className="mb-2 bg-gray-50 border text-gray-700 text-xs md:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="mb-2 bg-gray-50 border text-gray-700 text-xs md:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Objet de votre message"
                             value={values.subject} onChange={handleChange}
                             onBlur={onBlur}
@@ -220,13 +218,13 @@ const Form = () => {
                         <label
                             htmlFor="message"
                             className="mt-2 block text-xs md:text-sm font-medium text-gray-700"
-                        >Message</label>
+                        >Message *</label>
                         <textarea
                             id="message"
                             name="message"
                             rows={2}
                             required
-                            className="mb-2 bg-gray-50 border text-gray-700 text-xs md:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            className="mb-2 bg-gray-50 border text-gray-700 text-xs md:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-100 dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="Entrez votre message"
                             value={values.message} onChange={handleChange}
                             onBlur={onBlur}
@@ -250,8 +248,9 @@ const Form = () => {
                     </div>
                     
                     <button
+                        data-testid='toast'
                         type="submit"
-                        disabled={!values.name || !values.email || validate(values).email || !values.message || issubmitting}
+                        disabled={!values.name || !values.email || validate(values).email || !values.message || !values.subject || issubmitting}
                         onClick={onSubmit}
                         className="mt-4 w-100 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-xs md:text-sm font-medium rounded-md text-gray-100 bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
