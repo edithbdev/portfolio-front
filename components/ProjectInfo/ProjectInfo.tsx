@@ -48,7 +48,7 @@ const ProjectInfo = ({
   return (
     <>
       <div className='relative w-full h-auto py-4 px-8'>
-        <div className='relative min-h-128 flex flex-col md:flex-row max-w-fit p-4 m-auto z-10 rounded-xl bg-zinc-800 bg-opacity-95'>
+        <div className='relative min-h-128 flex flex-col md:flex-row max-w-8xl p-4 m-auto z-10 rounded-xl bg-zinc-800 bg-opacity-95'>
           {images && images.length > 0 ?
             <div className='relative w-full h-96 md:h-auto md:w-2/4 mb-4'>
               <Carousel imagesData={images} />
@@ -60,13 +60,13 @@ const ProjectInfo = ({
             </div>
           }
 
-          <div className='text-gray-100 px-0 py-4 md:py-0 text-center md:text-left md:px-8 w-full md:w-2/3'>
+          <div className='text-gray-100 px-0 py-4 md:py-0 text-center md:text-left md:pl-8 w-full md:w-2/3'>
             <div className='flex flex-col md:flex-row justify-between items-center md:items-start mt-6'>
               <h1 className='text-2xl mt-6 md:text-3xl md:mt-0 font-bold pb-4'>
                 {title}
               </h1>
               {projectLink && projectLink !== '' || githubLink && githubLink !== '' ?
-              <div className='flex flex-wrap items-center justify-center md:justify-start'>
+              <div className='flex flex-wrap items-center justify-center md:justify-start mr-0 md:mr-6'>
                 {projectLink && projectLink !== '' ? (
                   <Link href={projectLink} passHref target='_blank' rel='noopener noreferrer' className='mr-4 md:mr-8'>
                     <Image src={SITE} alt='site-internet' width={50} height={50} title='Voir le projet' loading="lazy" />

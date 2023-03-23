@@ -1,4 +1,4 @@
-// Configuration for Backoffice API
+// Configuration pour l'application front
 const MODE_ENV = process.env.NODE_ENV;
 
 let API_URL: string;

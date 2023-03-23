@@ -37,8 +37,8 @@ const SearchInput = ({ setQuery }: Props) => {
     };
 
     return (
-        <div className="relative flex items-center pb-6">
-            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row items-start md:items-center">
+        <div className="relative flex items-center pb-6" data-testid="SearchInput">
+            <form onSubmit={handleSubmit} className="flex flex-col md:flex-row items-start md:items-center" role="form">
                 <input
                     className="h-10 p-4 text-sm md:text-md w-72 rounded-full bg-zinc-600 text-gray-100 focus:outline-none focus:border focus:border-solid focus:border-zinc-700 placeholder-gray-100"
                     type="text"

@@ -22,7 +22,7 @@ const Modal = ({ isVisible, closeModal, children }: Props) => {
     }
 
     return (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-sm mt-20 md:mt-3" id="close-modal" onClick={handleClose}>
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-sm mt-20 md:mt-3" id="close-modal" onClick={handleClose} data-testid="Modal">
             <div className='w-[500px] h-[auto] flex flex-col mx-2 md:w-[800px] md:h-[800px]'>
                 <button className="text-white text-2xl font-bold place-self-end mr-5 mt-6 md:mt-4" onClick={closeModal}>
                     X

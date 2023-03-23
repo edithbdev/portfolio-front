@@ -30,8 +30,8 @@ const Card = ({ imgUrl, title, subtitle, displayOneList }: Props) => {
 
 
   return (
-    <div className='h-80' onClick={handleClick}>
-      <div className='relative h-full transition-all duration-300 rounded-lg cursor-pointer' >
+    <div className='h-80' onClick={handleClick} data-testid="Card">
+      <div className='relative h-full transition-all duration-300 rounded-lg cursor-pointer'>
         <Thumbnail imgUrl={imgUrl} height='h-72' border='border-2 border-zinc-800' />
         <div className='absolute w-full bottom-0 px-4 py-2 rounded-b-xl bg-zinc-800'>
           <h1 className='text-amber-200 font-semibold text-center text-sm capitalize md:uppercase'>{title}</h1>
