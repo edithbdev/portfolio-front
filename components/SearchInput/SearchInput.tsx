@@ -61,7 +61,7 @@ const SearchInput = ({ setQuery }: Props) => {
                     <button
                         type="button"
                         onClick={handleReset}
-                        className="text-sm md:text-md bg-red-800 hover:bg-red-900 text-gray-100 font-bold py-2 px-4 rounded-full ml-4">
+                        className="text-sm md:text-md bg-red-800 hover:bg-red-900 text-gray-100 font-bold py-2 px-4 rounded-full ml-0 md:ml-4 mt-4 md:mt-0">
                         <span>Réinitialiser la recherche</span>
                     </button>
                 )}
