@@ -8,6 +8,7 @@ type Props = {
 
 const SearchInput = ({ setQuery }: Props) => {
     const [text, setText] = useState('');
+    const [isSearchPerformed, setIsSearchPerformed] = useState(false);
     // const timer = useRef<NodeJS.Timeout>();
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -34,6 +35,13 @@ const SearchInput = ({ setQuery }: Props) => {
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setQuery(text);
+        setIsSearchPerformed(true);
+    };
+
+    const handleReset = () => {
+        setText('');
+        setQuery('');
+        setIsSearchPerformed(false);
     };
 
     return (
@@ -48,8 +56,15 @@ const SearchInput = ({ setQuery }: Props) => {
                     type="submit"
                     className="text-sm md:text-md bg-zinc-600 hover:bg-zinc-900 text-gray-100 font-bold py-2 px-4 rounded-full ml-0 md:ml-4 mt-4 md:mt-0">
                     <span>Rechercher</span>
-
                 </button>
+                {isSearchPerformed && (
+                    <button
+                        type="button"
+                        onClick={handleReset}
+                        className="text-sm md:text-md bg-red-800 hover:bg-red-900 text-gray-100 font-bold py-2 px-4 rounded-full ml-4">
+                        <span>Réinitialiser la recherche</span>
+                    </button>
+                )}
             </form>
         </div>
     )
