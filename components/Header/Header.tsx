@@ -44,8 +44,8 @@ const Header = () => {
                     <h1 className='text-xs md:text-2xl font-bold text-gray-100 box-border border-2 border-white rounded-md ml-2 px-2 md:px-4 py-2 cursor-pointer' title='Contactez-moi !'>Contact</h1>
                 </button>
                 <Modal isVisible={isModalOpen} closeModal={() => setIsModalOpen(false)}>
-                    <h1 className='text-xl md:text-3xl font-bold text-gray-400'>
-                        Contactez-moi !</h1>
+                    <p className='text-xl md:text-3xl font-bold text-gray-400'>
+                        Contactez-moi !</p>
                     <p className='text-xs md:text-lg font-bold text-gray-500 mt-4 mb-2'>
                         N&apos;hésitez à me contacter via ce formulaire ou <a href='https://www.linkedin.com/in/edithbredon/' target='_blank' rel='noreferrer' className='cursor-pointer underline'>mon profil
                             LinkedIn</a> pour en savoir plus ou bien discuter d&apos;une éventuelle collaboration</p>
